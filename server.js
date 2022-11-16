@@ -8,13 +8,20 @@ const {notFound} = require("./middlewares/notFound");
 const {resolveAlias} = require("./controlers/resolveAlias");
 const {addAlias} = require("./controlers/addAlias");
 const {errorHandler} = require("./middlewares/errorHandler");
+const {accessLogs} = require("./middlewares/accessLogs");
+const {dumpDatabase} = require("./utils/dumpDatabase");
 
 
 
 const app = express()
 app.use(express.json())
 
-app.use(urlLogger)
+// first middleware logs to console
+// second to logs file
+app.use(accessLogs())
+app.use(accessLogs(true))
+
+// app.use(urlLogger)
 //
 app.get("/ping", ping)
 app.get("/:alias", resolveAlias)
@@ -29,5 +36,5 @@ const PORT = 3000
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
 
-
+dumpDatabase()
 
