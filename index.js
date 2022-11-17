@@ -32,9 +32,10 @@ app.post("/alias",  addAlias)
 app.use(notFound)
 
 app.use(errorHandler)
-const PORT = 3000
+const PORT = 3000 || process.env.PORT
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
 
-dumpDatabase()
+// dumpDatabase()
 
+module.exports = app
