@@ -10,10 +10,15 @@ const {addAlias} = require("./controlers/addAlias");
 const {errorHandler} = require("./middlewares/errorHandler");
 const {accessLogs} = require("./middlewares/accessLogs");
 const {dumpDatabase} = require("./utils/dumpDatabase");
+const {monitorProcess} = require("./utils/monitorProcess");
+const {secure} = require("./middlewares/secure");
 
 
 
 const app = express()
+
+secure(app)
+
 app.use(express.json())
 
 // first middleware logs to console
@@ -37,5 +42,6 @@ const PORT = 3000 || process.env.PORT
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
 
 // dumpDatabase()
+monitorProcess()
 
 module.exports = app
