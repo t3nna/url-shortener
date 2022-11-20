@@ -9,7 +9,7 @@ const linksProdFilePath = path.resolve(__dirname, "../db/links.prod.json");
 const linksFilePath = process.env.LINKS_TYPE === "prod" ? linksProdFilePath: linksDevFilePath
 
 async function getByAlias (alias){
-    const linksFileContent = await fs.readFile(linksFilePath, "utf-8")
+    // const linksFileContent = await fs.readFile(linksFilePath, "utf-8")
     // const links = LinksFileContent
     //     .split("\n") // get rows
     //     .filter((str) => !!str) // or just .filter(Boolean);
