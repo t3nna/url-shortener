@@ -1,2 +1,11 @@
 GET / - 404 0.690 ms
 GET /lofi - 200 2.118 ms
+GET / - 404 2.940 ms
+GET /cats - 200 11.453 ms
+GET /music - 200 3.039 ms
+GET /music - 304 10.720 ms
+GET /favicon.ico - 404 2.017 ms
+GET /ping/ - 200 3.168 ms
+GET /mockServiceWorker.js - 404 4.543 ms
+GET /map - 304 0.983 ms
+GET /mockServiceWorker.js - 404 1.111 ms
